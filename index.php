@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>SafarNama</title>
 <link href="css/owl.carousel.css" rel='stylesheet' type='text/css'/>
 <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>

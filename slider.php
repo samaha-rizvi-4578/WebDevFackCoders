@@ -34,7 +34,7 @@
 			<div id="section-1" class="section">
 			    <div id="top" class="callbacks_container">
 			      <ul class="rslides" id="slider4">
-			        <li>
+			        <li>	
 			          <img src="images/fulbari.jpg" alt="">
 					  <div class="caption">
 			     	  		<div class="header-info">

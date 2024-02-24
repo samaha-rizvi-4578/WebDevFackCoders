@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2024 at 11:39 AM
+-- Generation Time: Feb 24, 2024 at 01:23 PM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,20 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `safarnama`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `analytics`
---
-
-CREATE TABLE `analytics` (
-  `AnalyticsID` int(11) NOT NULL,
-  `UserID` int(11) DEFAULT NULL,
-  `PageVisited` varchar(255) DEFAULT NULL,
-  `ActionPerformed` varchar(255) DEFAULT NULL,
-  `Date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -53,13 +39,27 @@ CREATE TABLE `community` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contactus`
+--
+
+CREATE TABLE `contactus` (
+  `contactid` int(50) NOT NULL,
+  `Name` varchar(50) NOT NULL,
+  `Phno` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Message` varchar(5000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `destination`
 --
 
 CREATE TABLE `destination` (
   `DestinationID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
-  'Category' ENUM('cultural', 'religious', 'history', 'adventure') NOT NULL,
+  `Category` enum('cultural','religious','history','adventure') NOT NULL,
   `Description` text DEFAULT NULL,
   `History` text DEFAULT NULL,
   `Significance` text DEFAULT NULL,
@@ -68,6 +68,26 @@ CREATE TABLE `destination` (
   `MultimediaContent` varchar(255) DEFAULT NULL,
   `ExclusiveDeals` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enquiry`
+--
+
+CREATE TABLE `enquiry` (
+  `Enquiryid` int(50) NOT NULL,
+  `Packageid` int(50) NOT NULL,
+  `Name` varchar(200) NOT NULL,
+  `Gender` varchar(20) NOT NULL,
+  `Mobileno` varchar(20) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `NoofDays` int(50) NOT NULL,
+  `Child` int(50) NOT NULL,
+  `Adults` int(50) NOT NULL,
+  `Message` varchar(900) NOT NULL,
+  `Statusfield` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -92,6 +112,24 @@ CREATE TABLE `notification` (
   `Content` text DEFAULT NULL,
   `Date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `package`
+--
+
+CREATE TABLE `package` (
+  `Packid` int(200) NOT NULL,
+  `Packname` varchar(1000) NOT NULL,
+  `Category` int(200) NOT NULL,
+  `Subcategory` int(200) NOT NULL,
+  `Packprice` int(200) NOT NULL,
+  `Pic1` varchar(8000) NOT NULL,
+  `Pic2` varchar(8000) NOT NULL,
+  `Pic3` varchar(8000) NOT NULL,
+  `Detail` varchar(8000) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -150,28 +188,21 @@ CREATE TABLE `trip` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `user` (
+CREATE TABLE `users` (
   `UserID` int(11) NOT NULL,
   `Username` varchar(255) NOT NULL,
   `Password` varchar(255) NOT NULL,
   `Email` varchar(255) NOT NULL,
   `ProfilePicture` varchar(255) DEFAULT NULL,
-  `Preferences` varchar(255) DEFAULT NULL
+  `UserType` enum('admin','user') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `analytics`
---
-ALTER TABLE `analytics`
-  ADD PRIMARY KEY (`AnalyticsID`),
-  ADD KEY `UserID` (`UserID`);
 
 --
 -- Indexes for table `community`
@@ -181,10 +212,22 @@ ALTER TABLE `community`
   ADD KEY `UserID` (`UserID`);
 
 --
+-- Indexes for table `contactus`
+--
+ALTER TABLE `contactus`
+  ADD PRIMARY KEY (`contactid`);
+
+--
 -- Indexes for table `destination`
 --
 ALTER TABLE `destination`
   ADD PRIMARY KEY (`DestinationID`);
+
+--
+-- Indexes for table `enquiry`
+--
+ALTER TABLE `enquiry`
+  ADD PRIMARY KEY (`Enquiryid`);
 
 --
 -- Indexes for table `language`
@@ -198,6 +241,12 @@ ALTER TABLE `language`
 ALTER TABLE `notification`
   ADD PRIMARY KEY (`NotificationID`),
   ADD KEY `UserID` (`UserID`);
+
+--
+-- Indexes for table `package`
+--
+ALTER TABLE `package`
+  ADD PRIMARY KEY (`Packid`);
 
 --
 -- Indexes for table `review`
@@ -229,38 +278,54 @@ ALTER TABLE `trip`
   ADD KEY `DestinationID` (`DestinationID`);
 
 --
--- Indexes for table `user`
+-- Indexes for table `users`
 --
-ALTER TABLE `user`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`UserID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `contactus`
+--
+ALTER TABLE `contactus`
+  MODIFY `contactid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `enquiry`
+--
+ALTER TABLE `enquiry`
+  MODIFY `Enquiryid` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `package`
+--
+ALTER TABLE `package`
+  MODIFY `Packid` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `analytics`
---
-ALTER TABLE `analytics`
-  ADD CONSTRAINT `analytics_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`);
-
---
 -- Constraints for table `community`
 --
 ALTER TABLE `community`
-  ADD CONSTRAINT `community_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`);
+  ADD CONSTRAINT `community_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
 
 --
 -- Constraints for table `notification`
 --
 ALTER TABLE `notification`
-  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`);
+  ADD CONSTRAINT `notification_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`);
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`),
+  ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`),
   ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`DestinationID`) REFERENCES `destination` (`DestinationID`);
 
 --
@@ -273,7 +338,7 @@ ALTER TABLE `translation`
 -- Constraints for table `trip`
 --
 ALTER TABLE `trip`
-  ADD CONSTRAINT `trip_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`),
+  ADD CONSTRAINT `trip_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `users` (`UserID`),
   ADD CONSTRAINT `trip_ibfk_2` FOREIGN KEY (`DestinationID`) REFERENCES `destination` (`DestinationID`);
 COMMIT;
 

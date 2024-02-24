@@ -9,7 +9,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-<title>My-tour bootstrap Design website | Home :: w3layouts</title>
+<title>SafarNama </title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
 <link href="../css/bootstrap.css" rel='stylesheet' type='text/css'/>
 <link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
