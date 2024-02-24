@@ -59,7 +59,7 @@ CREATE TABLE `community` (
 CREATE TABLE `destination` (
   `DestinationID` int(11) NOT NULL,
   `Name` varchar(255) NOT NULL,
-  `Category` varchar(50) NOT NULL,
+  'Category' ENUM('cultural', 'religious', 'history', 'adventure') NOT NULL,
   `Description` text DEFAULT NULL,
   `History` text DEFAULT NULL,
   `Significance` text DEFAULT NULL,
