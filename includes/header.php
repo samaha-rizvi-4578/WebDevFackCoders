@@ -64,7 +64,7 @@
 {?>
 								<li>Need Help?<a href="#" data-toggle="modal" data-target="#myModal3"> / Write Us </a>  </li>
 								<?php } else { ?>
-								<li><a href="FAQ's.php"> FAQ's </a>  </li>
+								<li><a href="enquiry.php"> FAQ's </a>  </li>
 								<?php } ?>
 								<div class="clearfix"></div>
 

@@ -41,14 +41,8 @@ include('includes/config.php');
 <div class="container">
 	<div class="rupes">
 		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-			<div class="rup-left">
-				<a href="#"><i class="fa fa-rupee"></i></a>
-			</div>
-			<div class="rup-rgt">
-				<h3>UP TO PKR 30% OFF</h3>
-				<h4><a href="offers.html">TRAVEL SMART</a></h4>
-				
-			</div>
+			
+			
 				<div class="clearfix"></div>
 		</div>
 		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">

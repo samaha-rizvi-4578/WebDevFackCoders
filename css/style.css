@@ -28,7 +28,7 @@ h1,h2,h3,h4,h5,h6{
 p{
 	margin:0;
 }
-ul{
+ul{ 
 	margin:0;
 	padding:0;
 }
@@ -37,7 +37,7 @@ label{
 }
 /*-- top-header --*/
 .logo a {
-    color: #3F84B1;
+    color: #064313;
     letter-spacing: 1px;
     font-size: 2em;
     font-weight: 400;
@@ -52,7 +52,7 @@ i.fa.fa-home {
     font-size: 24px;
 }
 .top-header {
-    background-color: green;
+    background-color: #035203 ;
     border-bottom: 0 none;
     height: 36px;
     line-height: 35px;
@@ -107,7 +107,7 @@ li.ned,li.wrt,li.tol{
 	padding-top: 17px;
 }
 .bus a {
-    color: #1f8dd6;
+    color: #0a6849;
     font-weight: 600;
     font-size: 14px;
     letter-spacing: .05em;
@@ -118,7 +118,7 @@ li.ned,li.wrt,li.tol{
     margin-top: 7px;
 }
 .securetxt {
-    color: #1f8dd6;
+    color: #0a773b;
     line-height: 18px;
     margin-top: 0px;
 	font-size: 14px;
@@ -128,7 +128,7 @@ li.ned,li.wrt,li.tol{
     display: inline-block;
 }
 i.fa.fa-lock {
-    color:#1f8dd6;
+    color:#077305;
     font-size: 2em;
     padding-right: 10px;
 }
@@ -153,7 +153,7 @@ i.fa.fa-lock {
 .bann-info h2 {
     font-size: 26px;
     margin-bottom: 30px;
-    color: #34ad00;
+    color: #236e03;
     font-weight: 700;
 }
 .bann-info {
@@ -221,7 +221,7 @@ button.seabtn {
     background-position: 96% center;
 } 
 button.seabtn:focus,button.seabtn:hover{
-    background-color:#1f8dd6;
+    background-color:#14702f;
     outline: 0;
 }
 .sear {
@@ -230,13 +230,13 @@ button.seabtn:focus,button.seabtn:hover{
 .bann-info1 h3 {
     font-size: 2.1em;
     font-weight: 700;
-    color: #34ad00;
+    color: #33691c;
     text-align: center;
     margin-top: 25px;
 }
 i.fa.fa-columns {
     font-size: 9em;
-    color: #1f8dd6;
+    color: #0a743d;
 }
 /*-- /banner --*/
 /*-- rupes --*/
@@ -255,15 +255,15 @@ i.fa.fa-columns {
 }
 i.fa.fa-usd{
     font-size: 5em;
-    color: #1f8dd6;
+    color: #186e07;
 }
 i.fa.fa-h-square{
     font-size: 5em;
-    color: #1f8dd6;
+    color: #018604;
 }
 i.fa.fa-mobile  {
     font-size:5em;
-    color: #1f8dd6;
+    color: #466d2c;
 }
 .rupes h3 {
     font-size: 20px;
@@ -304,7 +304,7 @@ a.learn{
     display: inline-block;
 }
 a.learn:focus,a.learn:hover {
-    background-color: #1f8dd6;
+    background-color: #2a8b3f;
     outline: 0;
 }
 .track {
@@ -352,7 +352,7 @@ i.fa.fa-map-marker {
 }
 i.fa.fa-truck,i.fa.fa-user,i.fa.fa-ticket {
     font-size: 4em;
-	color:#1f8dd6;
+	color:#09541c;
 }
 .routes h3 {
     font-size: 2em;
@@ -394,7 +394,7 @@ i.fa.fa-truck,i.fa.fa-user,i.fa.fa-ticket {
     display: inline-block;
 }
 .footer-left li a:hover{
-    color:#1f8dd6;
+    color:#1b903a;
 }
 .footer-top h3 {
     font-size: 1.7em;

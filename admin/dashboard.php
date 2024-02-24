@@ -36,7 +36,7 @@ if (strlen($_SESSION['alogin']) == 0) {
     <!-- lined-icons -->
     <link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
     <!-- //lined-icons -->
-    <style>
+	<style>
         /* Tourist theme styles */
         body {
             background-image: url('https://th.bing.com/th/id/OIP.lJuD5PsO7hAZM5ApYk-YpQHaEJ?w=319&h=180&c=7&r=0&o=5&dpr=1.1&pid=1.7');
@@ -51,7 +51,7 @@ if (strlen($_SESSION['alogin']) == 0) {
         }
 
         .sin-w3-agile {
-            background: rgba(0, 128, 0, 0.6);
+            background: rgba(255, 255, 255, 0.6);
             /* Reduced opacity */
             padding: 20px;
             border-radius: 10px;
@@ -146,7 +146,133 @@ if (strlen($_SESSION['alogin']) == 0) {
         .four-grid {
             margin-bottom: 20px;
         }
-    </style>
+
+        /* Additional styling for four-grids */
+        .four-text h3,
+        .four-text h4 {
+            color: #333; /* Darker text color */
+        }
+		  /* Sidebar menu styles */
+	  .sidebar-menu {
+        background-color: rgba(0,102,0, 0.7); /* Sidebar background color */
+        /* color: #fff; Text color */
+		border-right: #a8e4a0 2px solid;
+    }
+
+    .sidebar-menu .logo1 {
+        padding: 15px;
+        text-align: center;
+		background-color: #006600;
+    }
+
+    .sidebar-menu .sidebar-icon {
+        color: #fff;
+        font-size: 24px;
+		background-color: #006600;
+		border: none;
+    }
+	.sidebar-menu .sidebar-icon:hover {
+        color: #006600;
+        font-size: 24px;
+		background-color: #a8e4a0;
+    }
+
+    .sidebar-menu .menu {
+        padding: 15px;
+		/* background-color: #006600; */
+    }
+
+    .sidebar-menu .menu .nav-item {
+        margin-bottom: 10px;
+		/* background-color: #006600; */
+    }
+
+    .sidebar-menu .menu .nav-link {
+        /* color: #fff; */
+		color: #006600;
+		background-color: #a8e4a0;
+    }
+	.nav .flex-column{
+		background-color: #006600;
+	}
+    .sidebar-menu .menu .nav-link:hover {
+        color: #a8e4a0; /* Lighten text color on hover */
+		background-color: #a8e4a0;
+    }
+
+    .sidebar-menu .menu .nav-link i {
+        margin-right: 10px;
+    }
+
+    .sidebar-menu .menu .nav-link .fa-angle-right {
+        float: right;
+		background-color: #006600;
+    }
+
+    .sidebar-menu .menu .nav-link .nav-item {
+        padding-left: 20px; /* Indent sub-menu items */
+		background-color: #006600;
+    }
+	   /* Header styles */
+	   .header-main {
+        background-color: #fff; /* Header background color */
+        color: #333; /* Text color */
+        padding: 10px 20px; /* Adjust padding as needed */
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+	.header-main .logo-w3-agile {
+		background-color: #006600;
+	}
+    .header-main .logo-w3-agile h1 a {
+        color: #fff; /* Logo text color */
+        text-decoration: none;
+    }
+
+    .header-main .profile_details {
+		margin-left: 0;
+		color: #fff;
+		background-color: #006600;
+        position: relative;
+    }
+
+    .header-main .profile_img {
+		color: #fff;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .header-main .profile_img .prfil-img img {
+		color: #fff;
+        width: 40px; /* Adjust profile image size */
+        height: 40px;
+        border-radius: 50%;
+        margin-right: 10px;
+    }
+
+    .header-main .user-name p,
+    .header-main .user-name span {
+        margin: 0;
+    }
+
+    .header-main .dropdown-menu {
+        min-width: 50px; /* Adjust dropdown menu width */
+    }
+
+    .header-main .dropdown-menu li a {
+        color: #333; /* Dropdown menu text color */
+        text-decoration: none;
+        padding: 10px;
+        display: block;
+    }
+
+    .header-main .dropdown-menu li a:hover {
+        background-color: #a8e4a0; /* Background color on hover */
+    }
+		</style>
 </head>
 
 <body>
@@ -328,14 +454,18 @@ if (strlen($_SESSION['alogin']) == 0) {
                 pointSize: 0,
                 lineWidth: 0,
                 fillOpacity: 0.85,
-                data: [{
-                        period: '2014 Q1',
-                        iphone: 2668,
-                        ipad: null,
-                        itouch: 2649
-                    },
-                    // More data...
-                ],
+				data: [
+				{period: '2014 Q1', iphone: 2668, ipad: null, itouch: 2649},
+				{period: '2014 Q2', iphone: 15780, ipad: 13799, itouch: 12051},
+				{period: '2014 Q3', iphone: 12920, ipad: 10975, itouch: 9910},
+				{period: '2014 Q4', iphone: 8770, ipad: 6600, itouch: 6695},
+				{period: '2015 Q1', iphone: 10820, ipad: 10924, itouch: 12300},
+				{period: '2015 Q2', iphone: 9680, ipad: 9010, itouch: 7891},
+				{period: '2015 Q3', iphone: 4830, ipad: 3805, itouch: 1598},
+				{period: '2015 Q4', iphone: 15083, ipad: 8977, itouch: 5185},
+				{period: '2016 Q1', iphone: 10697, ipad: 4470, itouch: 2038},
+				{period: '2016 Q2', iphone: 8442, ipad: 5723, itouch: 1801}
+			],
                 lineColors: ['#ff4a43', '#a2d200', '#22beef'],
                 xkey: 'period',
                 redraw: true,
