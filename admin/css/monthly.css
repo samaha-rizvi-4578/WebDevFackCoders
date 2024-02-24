@@ -14,14 +14,14 @@
     position: relative;
     text-align: center;
     padding: 10px;
-    background: #e74c3c;
+    background: #005826; /* Pakistani green */
     height: 48px;
     box-sizing: border-box;
 }
 .monthly-header-title {
     font-size: 1em;
     text-transform: uppercase;
-    color: #ffffff;
+    color: #ffffff; /* White text */
 }
 /* wrapper for left button to make the clickable area bigger */
 .monthly-prev {
@@ -41,8 +41,8 @@
 	position: absolute;
 	top:50%;
 	left:50%;
-	border-left:2px solid #222;
-	border-bottom:2px solid #222;
+	border-left:2px solid #ffffff; /* White color */
+	border-bottom:2px solid #ffffff; /* White color */
 	width:10px;
 	height:10px;
 	margin:-3px 0 0 -5px;
@@ -68,8 +68,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    border-right: 2px solid #222;
-    border-top: 2px solid #222;
+    border-right: 2px solid #ffffff; /* White color */
+    border-top: 2px solid #ffffff; /* White color */
     width: 10px;
     height: 10px;
     margin: -3px 0 0 -5px;
@@ -82,7 +82,7 @@
 .monthly-day-title-wrap {
     display: table;
     width: 100%;
-    background:#e74c3c;
+    background:#005826; /* Pakistani green */
     border-bottom: 1px solid #EBEBEB;
     padding-bottom: 1.3em;
 }
@@ -95,7 +95,7 @@
     text-align: center;
     text-transform: uppercase;
     font-size: 1em;
-    color: #000000;
+    color: #ffffff; /* White text */
 }
 
 /* Calendar days wrapper */
@@ -206,7 +206,7 @@
     display: inline-block;
     width: 12px;
     height: 12px;
-    border: 2px solid #222;
+    border: 2px solid #ffffff; /* White color */
     border-radius: 9px;
     position: relative;
     opacity: .5;
@@ -229,8 +229,8 @@
 .monthly-reset:after {
     content: '';
     border: 3px solid transparent;
-    border-left: 3px solid #222;
-    border-bottom: 3px solid #222;
+    border-left: 3px solid #ffffff; /* White color */
+    border-bottom: 3px solid #ffffff; /* White color */
     position: absolute;
     left: 4px;
     top: 5px;
@@ -240,7 +240,7 @@
 	display: inline-block;
 	height:11px;
 	width:13px;
-	background:#222;
+	background:#ffffff; /* White color */
 	position: relative;
 	top:1px;
 	margin-right:5px;
