@@ -1,54 +1,82 @@
-<?php if(!isset($_SESSION)) { session_start(); } ?>
-
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
-<!DOCTYPE html>
-<html>
-<head>
-<title>SafarNama </title>
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-<link href="../css/bootstrap.css" rel='stylesheet' type='text/css'/>
-<link href="../css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--js--> 
-<script src="js/jquery.min.js"></script>
-
-<!--/js-->
-<!--animated-css-->
-<link href="../css/animate.css" rel="stylesheet" type="text/css" media="all">
-<script src="../js/wow.min.js"></script>
-<script>
- new WOW().init();
-</script>
-<!--/animated-css-->
-</head>
-<body>
-<!--header-->
-<!--sticky-->
-
 <?php
-if($_SESSION['loginstatus']=="")
+session_start();
+include('includes/config.php');
+if(isset($_POST['login']))
 {
-	header("location:loginform.php");
+$uname=$_POST['username'];
+$password=md5($_POST['password']);
+$sql ="SELECT UserName,Password FROM admin WHERE UserName=:uname and Password=:password";
+$query= $dbh -> prepare($sql);
+$query-> bindParam(':uname', $uname, PDO::PARAM_STR);
+$query-> bindParam(':password', $password, PDO::PARAM_STR);
+$query-> execute();
+$results=$query->fetchAll(PDO::FETCH_OBJ);
+if($query->rowCount() > 0)
+{
+$_SESSION['alogin']=$_POST['username'];
+echo "<script type='text/javascript'> document.location = 'dashboard.php'; </script>";
+} else{
+	
+	echo "<script>alert('Invalid Details');</script>";
+
 }
+
+}
+
 ?>
 
-
-<?php include('top.php'); ?>
-<!--/sticky-->
-<div style="padding-top:100px; box-shadow:1px 1px 20px black; min-height:570px" class="container">
-<div class="col-sm-3" style="border-right:1px solid #999; min-height:450px;">
-<?php include('left.php'); ?>
-</div>
-<div class="col-sm-9" align="center"><img src="adminpics/ert.jpg" style="padding-top:40px"  width="500px" height="400px"/></div>
-
-
-</div>
-<?php include('bottom.php'); ?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>TMS | Admin Sign in</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- Custom CSS -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="css/morris.css" type="text/css"/>
+<!-- Graph CSS -->
+<link href="css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="css/jquery-ui.css"> 
+<!-- jQuery -->
+<script src="js/jquery-2.1.4.min.js"></script>
+<!-- //jQuery -->
+<link href='//fonts.googleapis.com/css?family=Roboto:700,500,300,100italic,100,400' rel='stylesheet' type='text/css'/>
+<link href='//fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<!-- lined-icons -->
+<link rel="stylesheet" href="css/icon-font.min.css" type='text/css' />
+<!-- //lined-icons -->
+</head> 
+<body>
+	<div class="main-wthree">
+	<div class="container">
+	<div class="sin-w3-agile">
+		<h2>Sign In</h2>
+		<form  method="post">
+			<div class="username">
+				<span class="username">Username:</span>
+				<input type="text" name="username" class="name" placeholder="" required="">
+				<div class="clearfix"></div>
+			</div>
+			<div class="password-agileits">
+				<span class="username">Password:</span>
+				<input type="password" name="password" class="password" placeholder="" required="">
+				<div class="clearfix"></div>
+			</div>
+			
+			<div class="login-w3">
+					<input type="submit" class="login" name="login" value="Sign In">
+			</div>
+			<div class="clearfix"></div>
+		</form>
+				<div class="back">
+					<a href="../index.php">Back to home</a>
+				</div>
+				
+	</div>
+	</div>
+	</div>
 </body>
 </html>

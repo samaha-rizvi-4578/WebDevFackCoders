@@ -1,18 +1,15 @@
-<?php session_start();?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
-</head>
-
-<body>
 <?php
-$_SESSION["username"]="";
-$_SESSION["usertype"]="";
-$_SESSION["loginstatus"]="";
-
-header("location:loginform.php");
+session_start(); 
+$_SESSION = array();
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 60*60,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+}
+unset($_SESSION['alogin']);
+session_destroy(); // destroy session
+header("location:index.php"); 
 ?>
-</body>
-</html>
+

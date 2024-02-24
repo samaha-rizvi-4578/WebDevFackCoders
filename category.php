@@ -36,7 +36,7 @@
 <?php
 
 
-$s="select * from category";
+$s="select * from category"; //cATEGORY DOES NOT EXIST
 $result=mysqli_query($cn,$s);
 $r=mysqli_num_rows($result);
 //echo $r;

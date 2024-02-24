@@ -1,117 +1,132 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>SafarNama | FAQs</title>
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
-<link href="stylecss.css" rel='stylesheet' type='text/css'/>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
-<link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!--js--> 
-<script src="js/jquery.min.js"></script>
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php');
+if(isset($_POST['submit1']))
+{
+$fname=$_POST['fname'];
+$email=$_POST['email'];	
+$mobile=$_POST['mobileno'];
+$subject=$_POST['subject'];	
+$description=$_POST['description'];
+$sql="INSERT INTO  tblenquiry(FullName,EmailId,MobileNumber,Subject,Description) VALUES(:fname,:email,:mobile,:subject,:description)";
+$query = $dbh->prepare($sql);
+$query->bindParam(':fname',$fname,PDO::PARAM_STR);
+$query->bindParam(':email',$email,PDO::PARAM_STR);
+$query->bindParam(':mobile',$mobile,PDO::PARAM_STR);
+$query->bindParam(':subject',$subject,PDO::PARAM_STR);
+$query->bindParam(':description',$description,PDO::PARAM_STR);
+$query->execute();
+$lastInsertId = $dbh->lastInsertId();
+if($lastInsertId)
+{
+$msg="Enquiry  Successfully submited";
+}
+else 
+{
+$error="Something went wrong. Please try again";
+}
 
-<!--/js-->
-<!--animated-css-->
+}
+
+?>
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SafarNama</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="SafarNama In PHP" />
+<script type="applijewelleryion/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,700,600' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+<link href="css/font-awesome.css" rel="stylesheet">
+<!-- Custom Theme files -->
+<script src="js/jquery-1.12.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!--animate-->
 <link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
 <script src="js/wow.min.js"></script>
-<script>
- new WOW().init();
-</script>
+	<script>
+		 new WOW().init();
+	</script>
+  <style>
+		.errorWrap {
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #dd3d36;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+.succWrap{
+    padding: 10px;
+    margin: 0 0 20px 0;
+    background: #fff;
+    border-left: 4px solid #5cb85c;
+    -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+		</style>
 </head>
-
 <body>
-<?php include('function.php'); ?>
-<?php
-if(isset($_POST["sbmt"]))
-{
-	$cn=makeconnection();
-	$s="insert into enquiry(Packageid,Name,Gender,Mobileno,Email,NoofDays,Child,Adults,Message,Statusfield) values('" . $_REQUEST["pid"] ."','" . $_POST["t1"] ."','" . $_POST["r1"] ."','" . $_POST["t2"] ."','" . $_POST["t3"] ."','" . $_POST["t4"] ."','" . $_POST["t5"] ."','" . $_POST["t6"] ."','" . $_POST["t7"] ."','Pending')";	
-	
-	
-		mysqli_query($cn,$s);
-	
-	echo "<script>alert('Record Save');</script>";
-}
-?>
-
-<?php include('top.php'); ?>
-<!--/sticky-->
-<?php include('slider.php'); ?>
-<div style="height:50px"></div>
-<div style="width:1000px; margin:auto"  >
-
-<div style="width:200px; font-size:18px; color:#09F; float:left">
-
-<table cellpadding="0" cellspacing="0" width="1000px">
-<tr><td style="font-size:18px" color="#09F">Category</td></tr>
-<?php
-
-$s="select * from category";
-$result=mysqli_query($cn,$s);
-$r=mysqli_num_rows($result);
-//echo $r;
-
-while($data=mysqli_fetch_array($result))
-{
-	
-		echo "<tr><td style=' padding:5px;'><a href='subcat.php?catid=$data[0]'>$data[1]</a></td></tr>";
-
-}
-?>
-
-</table>
-
+<!-- top-header -->
+<div class="top-header">
+<?php include('includes/header.php');?>
+<div class="banner-1 ">
+	<div class="container">
+		<h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;">SafarNama</h1>
+	</div>
 </div>
+<!--- /banner-1 ---->
+<!--- privacy ---->
+<div class="privacy">
+	<div class="container">
+		<h3 class="wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">Enquiry Form Password</h3>
+		<form name="enquiry" method="post">
+		 <?php if($error){?><div class="errorWrap"><strong>ERROR</strong>:<?php echo htmlentities($error); ?> </div><?php } 
+				else if($msg){?><div class="succWrap"><strong>SUCCESS</strong>:<?php echo htmlentities($msg); ?> </div><?php }?>
+	<p style="width: 350px;">
+		
+		<b>Full name</b>  <input type="text" name="fname" class="form-control" id="fname" placeholder="Full Name" required="">
+	</p> 
+<p style="width: 350px;">
+<b>Email</b>  <input type="email" name="email" class="form-control" id="email" placeholder="abc@example.com" required="">
+	</p> 
 
-<div style="width:800px; float:left">
-<table cellpadding="0px" cellspacing="0" width="1000px">
-<tr><td class="headingText">Enquiry</td></tr>
-<tr><td class="paraText" width="900px">
-<table cellpadding="0" cellspacing="0" width="900px">
-<td>
+	<p style="width: 350px;">
+<b>Contact No</b>  <input type="text" name="mobileno" class="form-control" id="mobileno" maxlength="10" placeholder="+92 12345678912" required="">
+	</p> 
 
-<table border="0"; width="600px" height="400px" align="center" >
-<?php
+	<p style="width: 350px;">
+<b>Subject</b>  <input type="text" name="subject" class="form-control" id="subject"  placeholder="Subject" required="">
+	</p> 
+	<p style="width: 350px;">
+<b>Description</b>  <textarea name="description" class="form-control" rows="6" cols="50" id="description"  placeholder="Description" required=""></textarea> 
+	</p> 
 
-$s="select * from package,category,subcategory where package.category=category.cat_id and package.subcategory=subcategory.subcatid and package.packid='" . $_GET["pid"] ."'";
+			<p style="width: 350px;">
+<button type="submit" name="submit1" class="btn-primary btn">Submit</button>
+			</p>
+			</form>
 
-$result=mysqli_query($cn,$s);
-$r=mysqli_num_rows($result);
-//echo $r;
-$n=0;
-$data=mysqli_fetch_array($result);
-mysqli_close($cn);
-?>
- 
-<form method="post" enctype="multipart/form-data">
-<tr><td colspan="3" class="middletext">Package Id:&nbsp;&nbsp;&nbsp;<?php echo $data[0];?></td></tr>
-<tr><td colspan="3" class="middletext">Pack Name:&nbsp;&nbsp;&nbsp;<?php echo $data[1];?></td></tr>
-<tr><td class="lefttxt">Name:</td><td><input type="text" name="t1" required pattern="[a-zA-z1 _]{3,50}" title"Please Enter Only Characters and numbers between 1 to 50 for Name"/></td></tr><br/>
-<tr><td class="lefttxt">Gender:</td><td><input type="radio" name="r1" value="Male" checked="checked" />Male<input type="radio" name="r1"  value="Female"/>Female</td></tr><br/>
-<tr><td class="lefttxt">Mobile No.</td><td><input type="text" name="t2" required pattern="[0-9]{10,12}" title"Please Enter Only numbers between 10 to 12 for Mobile No"/></td></tr><br/>
-<tr><td class="lefttxt">Email:</td><td><input type="email" name="t3" required /></td><td><br/>
-<tr><td class="lefttxt">No.of Days:</td><td><input type="number" name="t4" required pattern="[1 _]{1,20}" title"Please Enter Only numbers between 1 to 20 for No. oF Days"/></td><td><br/>
-<tr><td class="lefttxt">No.of Children:</td><td><input type="number" name="t5" required pattern="[1 _]{1,10}" title"Please Enter Only numbers between 1 to 10 for Children"/></td><td><br/>
-<tr><td class="lefttxt">No.of Adults:</td><td><input type="number" name="t6" required pattern="[1 _]{1,20}" title"Please Enter Only numbers between 1 to 20 for No.Of Adults"/></td><td><br/>
-<tr><td class="lefttxt">Enquiry Message:</td><td><textarea name="t7" required="required"/></textarea></td><td><br/>
-<tr><td>&nbsp;</td><td ><input type="submit" value="Submit" name="sbmt" /></td></tr>
-
-</form></td></tr>
-</table>
-</td>
-</table>
-</td></tr>
-</table>
-
+		
+	</div>
 </div>
-
-</div>
-
-<div style="clear:both"></div>
-
-<?php include('bottom.php'); ?>
+<!--- /privacy ---->
+<!--- footer-top ---->
+<!--- /footer-top ---->
+<?php include('includes/footer.php');?>
+<!-- signup -->
+<?php include('includes/signup.php');?>			
+<!-- //signu -->
+<!-- signin -->
+<?php include('includes/signin.php');?>			
+<!-- //signin -->
+<!-- write us -->
+<?php include('includes/write-us.php');?>
 </body>
 </html>
-
