@@ -95,7 +95,7 @@ include('includes/config.php');
     <?php include('includes/header.php');?>
     <div class="banner">
         <div class="container">
-            <h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn; color:#fff; -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #006400"> Apka Suffer Hamaray Sath</h1>
+            <h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn; color:#008631;"> Apka Suffer Hamaray Sath</h1>
         </div>
     </div>
 
