@@ -95,45 +95,9 @@ include('includes/config.php');
     <?php include('includes/header.php');?>
     <div class="banner">
         <div class="container">
-            <h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;"> Apka Suffer Hamaray Sath</h1>
+            <h1 class="wow zoomIn animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn; color:#fff; -webkit-text-stroke-width: 2px; -webkit-text-stroke-color: #006400"> Apka Suffer Hamaray Sath</h1>
         </div>
     </div>
-
-
-<!--- rupes ---->
-<div class="container">
-	<div class="rupes">
-		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-			
-			
-				<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-			<div class="rup-left">
-				<a href="#"><i class="fa fa-h-square"></i></a>
-			</div>
-			<div class="rup-rgt">
-				<h3>UP TO 40% OFF</h3>
-				<h4><a href="#">ON HOTELS ACROSS Pakistan</a></h4>
-				
-			</div>
-				<div class="clearfix"></div>
-		</div>
-		<div class="col-md-4 rupes-left wow fadeInDown animated animated" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInDown;">
-			<div class="rup-left">
-				<a href="offers.html"><i class="fa fa-mobile"></i></a>
-			</div>
-			<div class="rup-rgt">
-				<h3>FLAT PKR 25% OFF</h3>
-				<h4><a href="offers.html">APP OFFER</a></h4>
-			
-			</div>
-				<div class="clearfix"></div>
-		</div>
-	
-	</div>
-</div>
-<!--- /rupes ---->
 
 
 
@@ -172,7 +136,7 @@ foreach($results as $result)
 				</div>
 				<div class="col-md-3 room-right wow fadeInLeft animated" data-wow-delay=".5s">
 					<h5>PKR <?php echo htmlentities($result->PackagePrice);?></h5>
-					<div class="button room-right wow Wobble animated" data-wow-delay=".5s">
+					<div class="button room-right wow bounce animated" data-wow-delay=".5s">
 					<a  href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>" class="view">Details</a>
 					</div>
 				</div>
@@ -194,10 +158,9 @@ foreach($results as $result)
 	<div class="container">
 		<div class="col-md-4 routes-left wow fadeInRight animated" data-wow-delay=".5s">
 			<div class="rou-left">
-				<a href="#"><i class="glyphicon glyphicon-list-alt"></i></a>
+				<a href="#"><i class="fa fa-ticket"></i></a>
 			</div>
 			<div class="rou-rgt wow fadeInDown animated" data-wow-delay=".5s">
-				<h3>5</h3>
 				<p>FAQ's</p>
 			</div>
 				<div class="clearfix"></div>
@@ -207,7 +170,7 @@ foreach($results as $result)
 				<a href="#"><i class="fa fa-user"></i></a>
 			</div>
 			<div class="rou-rgt">
-				<h3>1</h3>
+				
 				<p>Registered users</p>
 			</div>
 				<div class="clearfix"></div>
@@ -217,7 +180,7 @@ foreach($results as $result)
 				<a href="#"><i class="fa fa-ticket"></i></a>
 			</div>
 			<div class="rou-rgt">
-				<h3>2</h3>
+				
 				<p>Booking</p>
 			</div>
 				<div class="clearfix"></div>

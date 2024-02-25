@@ -62,6 +62,76 @@ $error="Something went wrong. Please try again";
 						});
 					</script>
 	  <style>
+		 /* Updated CSS for banner and animation */
+		 .banner {
+        background-color: rgba(0, 0, 0, 0.5); /* Change opacity here */
+    }
+    .banner h1 {
+        color: #fff; /* Change text color */
+    }
+    .rupes {
+        background-color: rgba(255, 255, 255, 0.8); /* Change opacity here */
+    }
+
+    /* Styling for the header */
+    .top-header {
+        background-color: #006400; /* Pakistani green color */
+        color: #fff; /* White text color */
+    }
+    .header {
+        background-color: #006400; /* Pakistani green color */
+    }
+    .header .logo a {
+        color: #fff; /* White text color */
+    }
+    .header .logo a:hover {
+        color: #00FF00; /* Light green on hover */
+        text-decoration: none; /* Remove underline on hover */
+    }
+
+    /* Styling for the navbar */
+    .nav {
+        background-color: #006400; /* Pakistani green color */
+        border: #fff 2px solid; /* Border color */
+    }
+    li > a {
+        color: #fff; /* White text color */
+    }
+    li > a:hover,
+    li > a:focus {
+        color: #00FF00; /* Light green on hover */
+        background-color: transparent; /* Transparent background on hover */
+    }
+    .navbar-toggle .icon-bar {
+        background-color: #fff; /* White color for the toggle icon bars */
+    }
+
+	.holiday h3{
+		color: #006400;
+	}
+	.package h4{
+		color: #006400;
+	}
+	.button a{
+		background-color: #006400;
+		color: #fff;
+	}
+    /* Styling for submit buttons */
+    .button a:hover {
+        background-color: whitesmoke; /* Light green on hover */
+		color: #006400;
+		border: #006400 1px solid;
+    }
+	.btn{
+		background-color: #006400;
+		color: #fff;
+	}
+    /* Styling for submit buttons */
+    .btn:hover {
+        background-color: whitesmoke; /* Light green on hover */
+		color: #006400;
+		border: #006400 1px solid;
+    }
 		.errorWrap {
     padding: 10px;
     margin: 0 0 20px 0;
@@ -113,7 +183,7 @@ foreach($results as $result)
 				<img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>" class="img-responsive" alt="">
 			</div>
 			<div class="col-md-8 selectroom_right wow fadeInRight animated" data-wow-delay=".5s">
-				<h2><?php echo htmlentities($result->PackageName);?></h2>
+				<div class="package"><h2><?php echo htmlentities($result->PackageName);?></h2></div>
 				<p class="dow">#PKG-<?php echo htmlentities($result->PackageId);?></p>
 				<p><b>Package Type :</b> <?php echo htmlentities($result->PackageType);?></p>
 				<p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p>
@@ -131,7 +201,7 @@ foreach($results as $result)
 				<div class="clearfix"></div>
 				<div class="grand">
 					<p>Estimated Total</p>
-					<h3>Rs 5000- Rs 10000</h3>
+					<h3>Rs XXXX</h3>
 					<p>Based On Your Requirements</p>
 				</div>
 			</div>
@@ -152,7 +222,7 @@ foreach($results as $result)
 					<?php if($_SESSION['login'])
 					{?>
 						<li class="spe" align="center">
-					<button type="submit" name="submit2" class="btn-primary btn">Book</button>
+					<button type="submit" name="submit2" class="btn">Book</button>
 						</li>
 						<?php } else {?>
 							<li class="sigi" align="center" style="margin-top: 1%">

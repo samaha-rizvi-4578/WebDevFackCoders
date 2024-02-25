@@ -26,6 +26,68 @@ include('includes/config.php');
 	<script>
 		 new WOW().init();
 	</script>
+	<style> 
+	 /* Updated CSS for banner and animation */
+	 .banner {
+        background-color: rgba(0, 0, 0, 0.5); /* Change opacity here */
+    }
+    .banner h1 {
+        color: #fff; /* Change text color */
+    }
+    .rupes {
+        background-color: rgba(255, 255, 255, 0.8); /* Change opacity here */
+    }
+
+    /* Styling for the header */
+    .top-header {
+        background-color: #006400; /* Pakistani green color */
+        color: #fff; /* White text color */
+    }
+    .header {
+        background-color: #006400; /* Pakistani green color */
+    }
+    .header .logo a {
+        color: #fff; /* White text color */
+    }
+    .header .logo a:hover {
+        color: #00FF00; /* Light green on hover */
+        text-decoration: none; /* Remove underline on hover */
+    }
+
+    /* Styling for the navbar */
+    .nav {
+        background-color: #006400; /* Pakistani green color */
+        border: #fff 2px solid; /* Border color */
+    }
+    li > a {
+        color: #fff; /* White text color */
+    }
+    li > a:hover,
+    li > a:focus {
+        color: #00FF00; /* Light green on hover */
+        background-color: transparent; /* Transparent background on hover */
+    }
+    .navbar-toggle .icon-bar {
+        background-color: #fff; /* White color for the toggle icon bars */
+    }
+
+	.holiday h3{
+		color: #006400;
+	}
+	.package h4{
+		color: #006400;
+	}
+	.button a{
+		background-color: #006400;
+		color: #fff;
+	}
+    /* Styling for submit buttons */
+    .button a:hover {
+        background-color: whitesmoke; /* Light green on hover */
+		color: #006400;
+		border: #006400 1px solid;
+    }
+</style>
 <!--//end-animate-->
 </head>
 <body>
@@ -42,8 +104,9 @@ include('includes/config.php');
 	<div class="container">
 		
 		<div class="room-bottom">
+			<div class="holiday">
 			<h3>Package List</h3>
-
+</div>
 					
 <?php $sql = "SELECT * from tbltourpackages";
 $query = $dbh->prepare($sql);
@@ -59,14 +122,14 @@ foreach($results as $result)
 					<img src="admin/pacakgeimages/<?php echo htmlentities($result->PackageImage);?>" class="img-responsive" alt="">
 				</div>
 				<div class="col-md-6 room-midle wow fadeInUp animated" data-wow-delay=".5s">
-					<h4><?php echo htmlentities($result->PackageName);?></h4>
+					<div class="package"><h4><?php echo htmlentities($result->PackageName);?></h4></div>
 					<h6>Package Type : <?php echo htmlentities($result->PackageType);?></h6>
 					<p><b>Package Location :</b> <?php echo htmlentities($result->PackageLocation);?></p>
 					<p><b>Features</b> <?php echo htmlentities($result->PackageFetures);?></p>
 				</div>
 				<div class="col-md-3 room-right wow fadeInRight animated" data-wow-delay=".5s">
 					<h5> PKR <?php echo htmlentities($result->PackagePrice);?></h5>
-					<a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>" class="view">Details</a>
+					<div class="button"><a href="package-details.php?pkgid=<?php echo htmlentities($result->PackageId);?>" class="view">Details</a></div>
 				</div>
 				<div class="clearfix"></div>
 			</div>

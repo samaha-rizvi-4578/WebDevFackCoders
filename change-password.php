@@ -70,6 +70,66 @@ return true;
 }
 </script>
   <style>
+	 /* Updated CSS for banner and animation */
+	 .banner {
+        background-color: rgba(0, 0, 0, 0.5); /* Change opacity here */
+    }
+    .banner h1 {
+        color: #fff; /* Change text color */
+    }
+    .rupes {
+        background-color: rgba(255, 255, 255, 0.8); /* Change opacity here */
+    }
+
+    /* Styling for the header */
+    .top-header {
+        background-color: #006400; /* Pakistani green color */
+        color: #fff; /* White text color */
+    }
+    .header {
+        background-color: #006400; /* Pakistani green color */
+    }
+    .header .logo a {
+        color: #fff; /* White text color */
+    }
+    .header .logo a:hover {
+        color: #00FF00; /* Light green on hover */
+        text-decoration: none; /* Remove underline on hover */
+    }
+
+    /* Styling for the navbar */
+    .nav {
+        background-color: #006400; /* Pakistani green color */
+        border: #fff 2px solid; /* Border color */
+    }
+    li > a {
+        color: #fff; /* White text color */
+    }
+    li > a:hover,
+    li > a:focus {
+        color: #00FF00; /* Light green on hover */
+        background-color: transparent; /* Transparent background on hover */
+    }
+    .navbar-toggle .icon-bar {
+        background-color: #fff; /* White color for the toggle icon bars */
+    }
+
+	.holiday h3{
+		color: #006400;
+	}
+	.package h4{
+		color: #006400;
+	}
+	.button a{
+		background-color: #006400;
+		color: #fff;
+	}
+    /* Styling for submit buttons */
+    .button a:hover {
+        background-color: whitesmoke; /* Light green on hover */
+		color: #006400;
+		border: #006400 1px solid;
+    }
 		.errorWrap {
     padding: 10px;
     margin: 0 0 20px 0;
